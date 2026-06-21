@@ -1,0 +1,167 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  --bg: #020202;
+  --panel: rgba(255, 255, 255, 0.04);
+  --text: #f5f5f5;
+}
+
+@theme {
+  --font-sans: "Manrope", "Segoe UI", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #010101;
+  color: var(--text);
+  font-family: var(--font-sans);
+}
+
+@media (pointer: fine) {
+  body,
+  a,
+  button,
+  input,
+  textarea,
+  label {
+    cursor: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.bg-app {
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.02), transparent 26%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.015), rgba(0, 0, 0, 0.045));
+}
+
+.font-display {
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-weight: 600;
+}
+
+.font-mono-ui {
+  font-family: "IBM Plex Mono", "Cascadia Code", monospace;
+  font-weight: 500;
+}
+
+@layer utilities {
+  .ui-eyebrow {
+    font-size: clamp(0.72rem, 0.68rem + 0.16vw, 0.82rem);
+    line-height: 1.35;
+    font-weight: 500;
+  }
+
+  .ui-meta {
+    font-size: clamp(0.74rem, 0.7rem + 0.14vw, 0.84rem);
+    line-height: 1.4;
+    font-weight: 500;
+  }
+
+  .ui-body-sm {
+    font-size: clamp(0.92rem, 0.88rem + 0.18vw, 1rem);
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .ui-body {
+    font-size: clamp(1rem, 0.96rem + 0.22vw, 1.08rem);
+    line-height: 1.8;
+    font-weight: 500;
+  }
+
+  .ui-body-lg {
+    font-size: clamp(1.06rem, 0.98rem + 0.42vw, 1.22rem);
+    line-height: 1.75;
+    font-weight: 500;
+  }
+
+  .ui-title-hero {
+    font-size: clamp(3.2rem, 8vw, 7rem);
+    line-height: 0.95;
+    font-weight: 600;
+  }
+
+  .ui-title-display {
+    font-size: clamp(2.5rem, 4vw, 4.5rem);
+    line-height: 0.96;
+    font-weight: 600;
+  }
+
+  .ui-title-section {
+    font-size: clamp(2rem, 3vw, 3.3rem);
+    line-height: 0.98;
+    font-weight: 600;
+  }
+
+  .ui-title-card {
+    font-size: clamp(1.6rem, 2.2vw, 2.3rem);
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .ui-title-metric {
+    font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+    line-height: 0.94;
+    font-weight: 600;
+  }
+
+  .ui-text-soft {
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .ui-text-muted {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .ui-text-strong {
+    color: rgba(255, 255, 255, 0.82);
+  }
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.92);
+  color: #050505;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(460px);
+    opacity: 0;
+  }
+}

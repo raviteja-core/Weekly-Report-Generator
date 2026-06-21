@@ -1,0 +1,1111 @@
+{
+  "app_name": "InsightForge AI",
+  "title": "InsightForge AI Analysis",
+  "prompt": "Generate a premium analytics narrative with KPI highlights, anomalies, trend commentary, and next-step recommendations.",
+  "schema": {
+    "row_count": 69,
+    "column_count": 5,
+    "roles": {
+      "date": null,
+      "revenue": "net_sales",
+      "category": null,
+      "region": "region"
+    },
+    "columns": [
+      {
+        "name": "order_date",
+        "semantic_type": "date",
+        "non_null_ratio": 1.0,
+        "distinct_ratio": 0.899,
+        "sample_values": [
+          "2026-01-03",
+          "2026-01-03",
+          "2026-01-07"
+        ]
+      },
+      {
+        "name": "net_sales",
+        "semantic_type": "number",
+        "non_null_ratio": 1.0,
+        "distinct_ratio": 0.797,
+        "sample_values": [
+          "12050",
+          "12050",
+          "11800"
+        ]
+      },
+      {
+        "name": "product_category",
+        "semantic_type": "string",
+        "non_null_ratio": 1.0,
+        "distinct_ratio": 0.174,
+        "sample_values": [
+          "Electronics",
+          "Electronics",
+          "electronics"
+        ]
+      },
+      {
+        "name": "region",
+        "semantic_type": "string",
+        "non_null_ratio": 1.0,
+        "distinct_ratio": 0.116,
+        "sample_values": [
+          "North",
+          "North",
+          "North"
+        ]
+      }
+    ],
+    "original_columns": [
+      "order_date",
+      "net_sales",
+      "product_category",
+      "region"
+    ]
+  },
+  "preview": [
+    {
+      "order_date": "2026-01-03",
+      "net_sales": "12050",
+      "product_category": "Electronics",
+      "region": "North"
+    },
+    {
+      "order_date": "2026-01-03",
+      "net_sales": "12050",
+      "product_category": "Electronics",
+      "region": "North"
+    },
+    {
+      "order_date": "2026-01-07",
+      "net_sales": "11800",
+      "product_category": "electronics",
+      "region": "North"
+    },
+    {
+      "order_date": "2026-01-10",
+      "net_sales": " ",
+      "product_category": "Electronics",
+      "region": "North"
+    },
+    {
+      "order_date": "2026-01-14",
+      "net_sales": "12670",
+      "product_category": "Electronics ",
+      "region": "North"
+    },
+    {
+      "order_date": "2026-01-18",
+      "net_sales": "12900",
+      "product_category": "Electronics",
+      "region": " north"
+    },
+    {
+      "order_date": "2026-01-22",
+      "net_sales": "13120",
+      "product_category": "Electronics",
+      "region": "North"
+    },
+    {
+      "order_date": "2026-01-29",
+      "net_sales": "50000",
+      "product_category": "Electronics",
+      "region": "North"
+    }
+  ],
+  "kpis": {
+    "headline": {
+      "total_revenue": 689490.0,
+      "growth_rate": 0.0,
+      "average_revenue": 9992.61,
+      "median_revenue": 9800.0,
+      "record_count": 69,
+      "trend_direction": "stable"
+    },
+    "comparisons": {
+      "top_category": "N/A",
+      "top_region": "North",
+      "latest_period": null,
+      "previous_period": null,
+      "forecast_next_period_revenue": null
+    },
+    "breakdowns": {
+      "category": [],
+      "region": [
+        {
+          "label": "North",
+          "value": 228990.0
+        },
+        {
+          "label": "West",
+          "value": 172600.0
+        },
+        {
+          "label": "East",
+          "value": 137200.0
+        },
+        {
+          "label": "South",
+          "value": 111900.0
+        },
+        {
+          "label": " north",
+          "value": 12900.0
+        },
+        {
+          "label": " west",
+          "value": 10500.0
+        }
+      ],
+      "revenue_series": []
+    },
+    "anomalies": {
+      "count": 0,
+      "periods": []
+    },
+    "insight_flags": [
+      "North is the strongest region by revenue."
+    ]
+  },
+  "charts": [
+    {
+      "id": "region-mix",
+      "type": "pie",
+      "title": "Region Mix",
+      "description": "Share of revenue across region.",
+      "figure": {
+        "data": [
+          {
+            "domain": {
+              "x": [
+                0.0,
+                1.0
+              ],
+              "y": [
+                0.0,
+                1.0
+              ]
+            },
+            "hole": 0.58,
+            "hovertemplate": "region=%{label}<br>revenue=%{value}<extra></extra>",
+            "labels": [
+              "North",
+              "West",
+              "East",
+              "South",
+              " north",
+              " west",
+              " east",
+              " south"
+            ],
+            "legendgroup": "",
+            "name": "",
+            "showlegend": true,
+            "values": {
+              "dtype": "f8",
+              "bdata": "AAAAAPDzC0EAAAAAwBEFQQAAAACAvwBBAAAAAMBR+0AAAAAAADLJQAAAAAAAgsRAAAAAAABiwUAAAAAAAGS5QA=="
+            },
+            "type": "pie",
+            "textinfo": "percent+label",
+            "textposition": "inside"
+          }
+        ],
+        "layout": {
+          "template": {
+            "data": {
+              "histogram2dcontour": [
+                {
+                  "type": "histogram2dcontour",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  },
+                  "colorscale": [
+                    [
+                      0.0,
+                      "#0d0887"
+                    ],
+                    [
+                      0.1111111111111111,
+                      "#46039f"
+                    ],
+                    [
+                      0.2222222222222222,
+                      "#7201a8"
+                    ],
+                    [
+                      0.3333333333333333,
+                      "#9c179e"
+                    ],
+                    [
+                      0.4444444444444444,
+                      "#bd3786"
+                    ],
+                    [
+                      0.5555555555555556,
+                      "#d8576b"
+                    ],
+                    [
+                      0.6666666666666666,
+                      "#ed7953"
+                    ],
+                    [
+                      0.7777777777777778,
+                      "#fb9f3a"
+                    ],
+                    [
+                      0.8888888888888888,
+                      "#fdca26"
+                    ],
+                    [
+                      1.0,
+                      "#f0f921"
+                    ]
+                  ]
+                }
+              ],
+              "choropleth": [
+                {
+                  "type": "choropleth",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  }
+                }
+              ],
+              "histogram2d": [
+                {
+                  "type": "histogram2d",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  },
+                  "colorscale": [
+                    [
+                      0.0,
+                      "#0d0887"
+                    ],
+                    [
+                      0.1111111111111111,
+                      "#46039f"
+                    ],
+                    [
+                      0.2222222222222222,
+                      "#7201a8"
+                    ],
+                    [
+                      0.3333333333333333,
+                      "#9c179e"
+                    ],
+                    [
+                      0.4444444444444444,
+                      "#bd3786"
+                    ],
+                    [
+                      0.5555555555555556,
+                      "#d8576b"
+                    ],
+                    [
+                      0.6666666666666666,
+                      "#ed7953"
+                    ],
+                    [
+                      0.7777777777777778,
+                      "#fb9f3a"
+                    ],
+                    [
+                      0.8888888888888888,
+                      "#fdca26"
+                    ],
+                    [
+                      1.0,
+                      "#f0f921"
+                    ]
+                  ]
+                }
+              ],
+              "heatmap": [
+                {
+                  "type": "heatmap",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  },
+                  "colorscale": [
+                    [
+                      0.0,
+                      "#0d0887"
+                    ],
+                    [
+                      0.1111111111111111,
+                      "#46039f"
+                    ],
+                    [
+                      0.2222222222222222,
+                      "#7201a8"
+                    ],
+                    [
+                      0.3333333333333333,
+                      "#9c179e"
+                    ],
+                    [
+                      0.4444444444444444,
+                      "#bd3786"
+                    ],
+                    [
+                      0.5555555555555556,
+                      "#d8576b"
+                    ],
+                    [
+                      0.6666666666666666,
+                      "#ed7953"
+                    ],
+                    [
+                      0.7777777777777778,
+                      "#fb9f3a"
+                    ],
+                    [
+                      0.8888888888888888,
+                      "#fdca26"
+                    ],
+                    [
+                      1.0,
+                      "#f0f921"
+                    ]
+                  ]
+                }
+              ],
+              "contourcarpet": [
+                {
+                  "type": "contourcarpet",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  }
+                }
+              ],
+              "contour": [
+                {
+                  "type": "contour",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  },
+                  "colorscale": [
+                    [
+                      0.0,
+                      "#0d0887"
+                    ],
+                    [
+                      0.1111111111111111,
+                      "#46039f"
+                    ],
+                    [
+                      0.2222222222222222,
+                      "#7201a8"
+                    ],
+                    [
+                      0.3333333333333333,
+                      "#9c179e"
+                    ],
+                    [
+                      0.4444444444444444,
+                      "#bd3786"
+                    ],
+                    [
+                      0.5555555555555556,
+                      "#d8576b"
+                    ],
+                    [
+                      0.6666666666666666,
+                      "#ed7953"
+                    ],
+                    [
+                      0.7777777777777778,
+                      "#fb9f3a"
+                    ],
+                    [
+                      0.8888888888888888,
+                      "#fdca26"
+                    ],
+                    [
+                      1.0,
+                      "#f0f921"
+                    ]
+                  ]
+                }
+              ],
+              "surface": [
+                {
+                  "type": "surface",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  },
+                  "colorscale": [
+                    [
+                      0.0,
+                      "#0d0887"
+                    ],
+                    [
+                      0.1111111111111111,
+                      "#46039f"
+                    ],
+                    [
+                      0.2222222222222222,
+                      "#7201a8"
+                    ],
+                    [
+                      0.3333333333333333,
+                      "#9c179e"
+                    ],
+                    [
+                      0.4444444444444444,
+                      "#bd3786"
+                    ],
+                    [
+                      0.5555555555555556,
+                      "#d8576b"
+                    ],
+                    [
+                      0.6666666666666666,
+                      "#ed7953"
+                    ],
+                    [
+                      0.7777777777777778,
+                      "#fb9f3a"
+                    ],
+                    [
+                      0.8888888888888888,
+                      "#fdca26"
+                    ],
+                    [
+                      1.0,
+                      "#f0f921"
+                    ]
+                  ]
+                }
+              ],
+              "mesh3d": [
+                {
+                  "type": "mesh3d",
+                  "colorbar": {
+                    "outlinewidth": 0,
+                    "ticks": ""
+                  }
+                }
+              ],
+              "scatter": [
+                {
+                  "fillpattern": {
+                    "fillmode": "overlay",
+                    "size": 10,
+                    "solidity": 0.2
+                  },
+                  "type": "scatter"
+                }
+              ],
+              "parcoords": [
+                {
+                  "type": "parcoords",
+                  "line": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scatterpolargl": [
+                {
+                  "type": "scatterpolargl",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "bar": [
+                {
+                  "error_x": {
+                    "color": "#2a3f5f"
+                  },
+                  "error_y": {
+                    "color": "#2a3f5f"
+                  },
+                  "marker": {
+                    "line": {
+                      "color": "#E5ECF6",
+                      "width": 0.5
+                    },
+                    "pattern": {
+                      "fillmode": "overlay",
+                      "size": 10,
+                      "solidity": 0.2
+                    }
+                  },
+                  "type": "bar"
+                }
+              ],
+              "scattergeo": [
+                {
+                  "type": "scattergeo",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scatterpolar": [
+                {
+                  "type": "scatterpolar",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "histogram": [
+                {
+                  "marker": {
+                    "pattern": {
+                      "fillmode": "overlay",
+                      "size": 10,
+                      "solidity": 0.2
+                    }
+                  },
+                  "type": "histogram"
+                }
+              ],
+              "scattergl": [
+                {
+                  "type": "scattergl",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scatter3d": [
+                {
+                  "type": "scatter3d",
+                  "line": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  },
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scattermap": [
+                {
+                  "type": "scattermap",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scattermapbox": [
+                {
+                  "type": "scattermapbox",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scatterternary": [
+                {
+                  "type": "scatterternary",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "scattercarpet": [
+                {
+                  "type": "scattercarpet",
+                  "marker": {
+                    "colorbar": {
+                      "outlinewidth": 0,
+                      "ticks": ""
+                    }
+                  }
+                }
+              ],
+              "carpet": [
+                {
+                  "aaxis": {
+                    "endlinecolor": "#2a3f5f",
+                    "gridcolor": "white",
+                    "linecolor": "white",
+                    "minorgridcolor": "white",
+                    "startlinecolor": "#2a3f5f"
+                  },
+                  "baxis": {
+                    "endlinecolor": "#2a3f5f",
+                    "gridcolor": "white",
+                    "linecolor": "white",
+                    "minorgridcolor": "white",
+                    "startlinecolor": "#2a3f5f"
+                  },
+                  "type": "carpet"
+                }
+              ],
+              "table": [
+                {
+                  "cells": {
+                    "fill": {
+                      "color": "#EBF0F8"
+                    },
+                    "line": {
+                      "color": "white"
+                    }
+                  },
+                  "header": {
+                    "fill": {
+                      "color": "#C8D4E3"
+                    },
+                    "line": {
+                      "color": "white"
+                    }
+                  },
+                  "type": "table"
+                }
+              ],
+              "barpolar": [
+                {
+                  "marker": {
+                    "line": {
+                      "color": "#E5ECF6",
+                      "width": 0.5
+                    },
+                    "pattern": {
+                      "fillmode": "overlay",
+                      "size": 10,
+                      "solidity": 0.2
+                    }
+                  },
+                  "type": "barpolar"
+                }
+              ],
+              "pie": [
+                {
+                  "automargin": true,
+                  "type": "pie"
+                }
+              ]
+            },
+            "layout": {
+              "autotypenumbers": "strict",
+              "colorway": [
+                "#636efa",
+                "#EF553B",
+                "#00cc96",
+                "#ab63fa",
+                "#FFA15A",
+                "#19d3f3",
+                "#FF6692",
+                "#B6E880",
+                "#FF97FF",
+                "#FECB52"
+              ],
+              "font": {
+                "color": "#2a3f5f"
+              },
+              "hovermode": "closest",
+              "hoverlabel": {
+                "align": "left"
+              },
+              "paper_bgcolor": "white",
+              "plot_bgcolor": "#E5ECF6",
+              "polar": {
+                "bgcolor": "#E5ECF6",
+                "angularaxis": {
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "ticks": ""
+                },
+                "radialaxis": {
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "ticks": ""
+                }
+              },
+              "ternary": {
+                "bgcolor": "#E5ECF6",
+                "aaxis": {
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "ticks": ""
+                },
+                "baxis": {
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "ticks": ""
+                },
+                "caxis": {
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "ticks": ""
+                }
+              },
+              "coloraxis": {
+                "colorbar": {
+                  "outlinewidth": 0,
+                  "ticks": ""
+                }
+              },
+              "colorscale": {
+                "sequential": [
+                  [
+                    0.0,
+                    "#0d0887"
+                  ],
+                  [
+                    0.1111111111111111,
+                    "#46039f"
+                  ],
+                  [
+                    0.2222222222222222,
+                    "#7201a8"
+                  ],
+                  [
+                    0.3333333333333333,
+                    "#9c179e"
+                  ],
+                  [
+                    0.4444444444444444,
+                    "#bd3786"
+                  ],
+                  [
+                    0.5555555555555556,
+                    "#d8576b"
+                  ],
+                  [
+                    0.6666666666666666,
+                    "#ed7953"
+                  ],
+                  [
+                    0.7777777777777778,
+                    "#fb9f3a"
+                  ],
+                  [
+                    0.8888888888888888,
+                    "#fdca26"
+                  ],
+                  [
+                    1.0,
+                    "#f0f921"
+                  ]
+                ],
+                "sequentialminus": [
+                  [
+                    0.0,
+                    "#0d0887"
+                  ],
+                  [
+                    0.1111111111111111,
+                    "#46039f"
+                  ],
+                  [
+                    0.2222222222222222,
+                    "#7201a8"
+                  ],
+                  [
+                    0.3333333333333333,
+                    "#9c179e"
+                  ],
+                  [
+                    0.4444444444444444,
+                    "#bd3786"
+                  ],
+                  [
+                    0.5555555555555556,
+                    "#d8576b"
+                  ],
+                  [
+                    0.6666666666666666,
+                    "#ed7953"
+                  ],
+                  [
+                    0.7777777777777778,
+                    "#fb9f3a"
+                  ],
+                  [
+                    0.8888888888888888,
+                    "#fdca26"
+                  ],
+                  [
+                    1.0,
+                    "#f0f921"
+                  ]
+                ],
+                "diverging": [
+                  [
+                    0,
+                    "#8e0152"
+                  ],
+                  [
+                    0.1,
+                    "#c51b7d"
+                  ],
+                  [
+                    0.2,
+                    "#de77ae"
+                  ],
+                  [
+                    0.3,
+                    "#f1b6da"
+                  ],
+                  [
+                    0.4,
+                    "#fde0ef"
+                  ],
+                  [
+                    0.5,
+                    "#f7f7f7"
+                  ],
+                  [
+                    0.6,
+                    "#e6f5d0"
+                  ],
+                  [
+                    0.7,
+                    "#b8e186"
+                  ],
+                  [
+                    0.8,
+                    "#7fbc41"
+                  ],
+                  [
+                    0.9,
+                    "#4d9221"
+                  ],
+                  [
+                    1,
+                    "#276419"
+                  ]
+                ]
+              },
+              "xaxis": {
+                "gridcolor": "white",
+                "linecolor": "white",
+                "ticks": "",
+                "title": {
+                  "standoff": 15
+                },
+                "zerolinecolor": "white",
+                "automargin": true,
+                "zerolinewidth": 2
+              },
+              "yaxis": {
+                "gridcolor": "white",
+                "linecolor": "white",
+                "ticks": "",
+                "title": {
+                  "standoff": 15
+                },
+                "zerolinecolor": "white",
+                "automargin": true,
+                "zerolinewidth": 2
+              },
+              "scene": {
+                "xaxis": {
+                  "backgroundcolor": "#E5ECF6",
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "showbackground": true,
+                  "ticks": "",
+                  "zerolinecolor": "white",
+                  "gridwidth": 2
+                },
+                "yaxis": {
+                  "backgroundcolor": "#E5ECF6",
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "showbackground": true,
+                  "ticks": "",
+                  "zerolinecolor": "white",
+                  "gridwidth": 2
+                },
+                "zaxis": {
+                  "backgroundcolor": "#E5ECF6",
+                  "gridcolor": "white",
+                  "linecolor": "white",
+                  "showbackground": true,
+                  "ticks": "",
+                  "zerolinecolor": "white",
+                  "gridwidth": 2
+                }
+              },
+              "shapedefaults": {
+                "line": {
+                  "color": "#2a3f5f"
+                }
+              },
+              "annotationdefaults": {
+                "arrowcolor": "#2a3f5f",
+                "arrowhead": 0,
+                "arrowwidth": 1
+              },
+              "geo": {
+                "bgcolor": "white",
+                "landcolor": "#E5ECF6",
+                "subunitcolor": "white",
+                "showland": true,
+                "showlakes": true,
+                "lakecolor": "white"
+              },
+              "title": {
+                "x": 0.05
+              },
+              "mapbox": {
+                "style": "light"
+              }
+            }
+          },
+          "legend": {
+            "tracegroupgap": 0
+          },
+          "title": {
+            "text": "Region Mix"
+          },
+          "piecolorway": [
+            "rgb(228, 241, 225)",
+            "rgb(180, 217, 204)",
+            "rgb(137, 192, 182)",
+            "rgb(99, 166, 160)",
+            "rgb(68, 140, 138)",
+            "rgb(40, 114, 116)",
+            "rgb(13, 88, 95)"
+          ],
+          "paper_bgcolor": "rgba(7, 10, 24, 0)",
+          "plot_bgcolor": "rgba(7, 10, 24, 0)",
+          "font": {
+            "color": "#e5eefb",
+            "family": "Inter, sans-serif"
+          }
+        }
+      },
+      "data_points": [
+        {
+          "region": "North",
+          "revenue": 228990.0
+        },
+        {
+          "region": "West",
+          "revenue": 172600.0
+        },
+        {
+          "region": "East",
+          "revenue": 137200.0
+        },
+        {
+          "region": "South",
+          "revenue": 111900.0
+        },
+        {
+          "region": " north",
+          "revenue": 12900.0
+        },
+        {
+          "region": " west",
+          "revenue": 10500.0
+        },
+        {
+          "region": " east",
+          "revenue": 8900.0
+        },
+        {
+          "region": " south",
+          "revenue": 6500.0
+        }
+      ]
+    }
+  ],
+  "summary": "InsightForge AI found total revenue of 689490.0 with 0.0% growth and a stable trend profile.",
+  "insights": [
+    {
+      "title": "Momentum check",
+      "body": "Revenue is holding steady, with total revenue at 689490.0 and period-over-period growth at 0.0%.",
+      "tone": "positive"
+    },
+    {
+      "title": "Where revenue concentrates",
+      "body": "N/A leads category performance while North leads regional contribution.",
+      "tone": "neutral"
+    },
+    {
+      "title": "Risk signal",
+      "body": "No material anomalies surfaced in the measured periods.",
+      "tone": "positive"
+    }
+  ],
+  "story": [
+    {
+      "id": "story-hero",
+      "eyebrow": "AI Narrative",
+      "headline": "A premium readout of the dataset you uploaded.",
+      "copy": "The analysis was generated from your business data for the prompt: Generate a premium analytics narrative with KPI highlights, anomalies, trend commentary, and next-step recommendations.",
+      "chart_id": "region-mix"
+    },
+    {
+      "id": "story-momentum",
+      "eyebrow": "Trend Story",
+      "headline": "Revenue is holding steady.",
+      "copy": "Average revenue per record is 9992.61, and the latest growth rate landed at 0.0%.",
+      "chart_id": "region-mix"
+    },
+    {
+      "id": "story-focus",
+      "eyebrow": "Focus Areas",
+      "headline": "The business is being carried by a few standout dimensions.",
+      "copy": "Top category: N/A. Top region: North. Use this to prioritize commercial attention.",
+      "chart_id": "region-mix"
+    }
+  ],
+  "suggested_questions": [
+    "Why did revenue drop?",
+    "Which segment is driving the business?",
+    "What anomalies should I investigate?"
+  ],
+  "meta": {
+    "generation_mode": "fallback",
+    "ollama_host": "http://localhost:11434",
+    "ollama_model": "mistral:latest",
+    "warnings": [
+      "Unable to reach Ollama. Start Ollama and run `ollama pull mistral:latest` first."
+    ],
+    "tools": [
+      "calculate_kpis",
+      "generate_chart"
+    ]
+  },
+  "csv_text": "order_date,net_sales,product_category,region\r\n2026-01-03,12050,Electronics,North\r\n2026-01-03,12050,Electronics,North\r\n2026-01-07,11800,electronics,North\r\n2026-01-10, ,Electronics,North\r\n2026-01-14,12670,Electronics ,North\r\n2026-01-18,12900,Electronics, north\r\n2026-01-22,13120,Electronics,North\r\n2026-01-29,50000,Electronics,North\r\n2026-02-02,13400,Electronics,North\r\n2026-02-06,-200,Electronics,North\r\n2026-02-14,22000,Electronics,North\r\n2026-02-20,13900,Electronics,North\r\n2026-02-28,14100,Electronics,North\r\n2026-03-03,14200,Electronics,North\r\n2026-03-10, ,Electronics,North\r\n2026-03-18,9700,Electronics,North\r\n2026-03-25,15000,Electronics,North\r\n2026-04-01,15200,Electronics,North\r\n\r\n2026-01-04,8200,Apparel,East\r\n2026-01-08,8300,apparel,East\r\n2026-01-12, ,Apparel,East\r\n2026-01-16,9100,Apparel ,East\r\n2026-01-20,8900,Apparel, east\r\n2026-01-25,9200,Apparel,East\r\n2026-02-01,9400,Apparel,East\r\n2026-02-05,9600,Apparel,East\r\n2026-02-14,15000,Apparel,East\r\n2026-02-18,9700,Apparel,East\r\n2026-02-27,9800,Apparel,East\r\n2026-03-02,9900,Apparel,East\r\n2026-03-09,10000,Apparel,East\r\n2026-03-15, ,Apparel,East\r\n2026-03-21,7200,Apparel,East\r\n2026-03-30,10800,Apparel,East\r\n2026-04-03,11000,Apparel,East\r\n\r\n2026-01-05,6100,Home,South\r\n2026-01-09,6200,home,South\r\n2026-01-13,6400,Home ,South\r\n2026-01-17,6500,Home, south\r\n2026-01-23,6600,Home,South\r\n2026-01-30,7000,Home,South\r\n2026-02-04,7100,Home,South\r\n2026-02-09,7300,Home,South\r\n2026-02-14,12000,Home,South\r\n2026-02-19,7400,Home,South\r\n2026-02-26,7600,Home,South\r\n2026-03-01,7800,Home,South\r\n2026-03-08,8000,Home,South\r\n2026-03-14, ,Home,South\r\n2026-03-22,5800,Home,South\r\n2026-03-29,8200,Home,South\r\n2026-04-04,8400,Home,South\r\n\r\n2026-01-02,9900,Beauty,West\r\n2026-01-06,9700,Beauty,West\r\n2026-01-11,10000,beauty,West\r\n2026-01-15,10300,Beauty ,West\r\n2026-01-21,10500,Beauty, west\r\n2026-01-27,10700,Beauty,West\r\n2026-02-03,10900,Beauty,West\r\n2026-02-08,11200,Beauty,West\r\n2026-02-14,18000,Beauty,West\r\n2026-02-19,11300,Beauty,West\r\n2026-02-25,11500,Beauty,West\r\n2026-03-03,11800,Beauty,West\r\n2026-03-10,12000,Beauty,West\r\n2026-03-17, ,Beauty,West\r\n2026-03-23,8800,Beauty,West\r\n2026-03-31,13000,Beauty,West\r\n2026-04-05,13500,Beauty,West",
+  "report_id": "3779a4cbf87d",
+  "saved_at": "2026-04-28T13:44:35.619241+00:00"
+}

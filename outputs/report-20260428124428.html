@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Sales Performance Summary</title>
+    <style>
+        body { font-family: "Segoe UI", Arial, sans-serif; margin: 0; background: #f4f7fb; color: #111827; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 24px; background: white; border-radius: 24px; box-shadow: 0 24px 80px rgba(15, 23, 42, 0.08); }
+        h1, h2 { color: #111827; }
+        .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 16px; margin: 24px 0; }
+        .kpi-card { background: #eef2ff; padding: 20px; border-radius: 18px; }
+        .kpi-card strong { display: block; margin-bottom: 10px; color: #4338ca; }
+        .chart { margin-top: 24px; }
+        .chart iframe { width: 100%; min-height: 420px; border: none; border-radius: 18px; background: #0f172a; box-shadow: 0 16px 40px rgba(15,23,42,0.08); }
+        .insights, .actions { display: grid; gap: 16px; }
+        .insight { padding: 18px; border-radius: 18px; background: #f8fafc; border: 1px solid #e2e8f0; }
+        .action { padding: 16px; border-radius: 16px; background: #eff6ff; border: 1px solid #bfdbfe; }
+        .meta { margin-top: 32px; padding: 20px; border-radius: 18px; background: #0f172a; color: #e2e8f0; }
+        .meta ul { margin: 12px 0 0; padding-left: 20px; }
+        .footer { margin-top: 32px; font-size: 0.95rem; color: #6b7280; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Weekly Sales Performance Summary</h1>
+    <p>Structured KPI report generated from your uploaded CSV dataset using explicit KPI and chart tools.</p>
+    <h2>Executive Summary</h2>
+    <p>Sales have declined by 49.38% from the previous week, with total revenue of $383,200. The Electronics category has emerged as the top performer.</p>
+
+    <div class="kpi-grid">
+        
+        <div class="kpi-card">
+            <strong>Total Revenue</strong>
+            <span>383200.0</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Growth Rate</strong>
+            <span>-49.38</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Average Order Value</strong>
+            <span>14738.46</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Top Category</strong>
+            <span>Electronics</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Top Region</strong>
+            <span>East</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Forecast Next Period Revenue</strong>
+            <span>32499.24</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Anomaly Count</strong>
+            <span>1</span>
+        </div>
+        
+        <div class="kpi-card">
+            <strong>Anomaly Periods</strong>
+            <span>['2024-01-22']</span>
+        </div>
+        
+    </div>
+
+    <h2>Charts</h2>
+    <div class="chart-grid">
+        
+        <div class="chart">
+            <h3>Revenue Trend</h3>
+            
+            <iframe src="/outputs/charts/revenue-trend-e25ef376.html" title="Revenue Trend"></iframe>
+            
+        </div>
+        
+        <div class="chart">
+            <h3>Category Sales</h3>
+            
+            <iframe src="/outputs/charts/category-sales-f5a79d3f.html" title="Category Sales"></iframe>
+            
+        </div>
+        
+        <div class="chart">
+            <h3>Region Sales</h3>
+            
+            <iframe src="/outputs/charts/region-sales-793247bf.html" title="Region Sales"></iframe>
+            
+        </div>
+        
+        
+    </div>
+
+    <h2>Insights</h2>
+    <div class="insights">
+        
+        <div class="insight">Examine the cause for the significant drop in sales this week.</div>
+        
+        <div class="insight">Focus on marketing efforts within the Electronics category due to its high performance.</div>
+        
+        <div class="insight">Investigate the anomalous sales drop on January 22, 2024.</div>
+        
+    </div>
+
+    <h2>Recommended Actions</h2>
+    <div class="actions">
+        
+        <div class="action">Consider implementing promotions or discounts to boost sales.</div>
+        
+        <div class="action">Allocate resources to promote Electronics category products more aggressively.</div>
+        
+        <div class="action">Conduct a thorough analysis of the anomalous sales drop on January 22, 2024.</div>
+        
+    </div>
+
+    <div class="meta">
+        <strong>Generation Mode:</strong> ollama<br>
+        <strong>Model:</strong> mistral:latest<br>
+        <strong>Tool Execution:</strong>
+        <ul>
+            
+            <li>calculate_kpis - success - Computed KPI set with total revenue 383200.0 and growth rate -49.38%.</li>
+            
+            <li>generate_charts - success - Generated 3 chart(s): Revenue Trend, Category Sales, Region Sales.</li>
+            
+        </ul>
+        
+    </div>
+
+    <div class="footer">
+        Generated by ReportGenie AI using tool-augmented LLM workflows.
+    </div>
+</div>
+</body>
+</html>
