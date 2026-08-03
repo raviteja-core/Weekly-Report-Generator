@@ -35,6 +35,8 @@ The core reasoning model is a fine-tuned **Qwen2.5-3B-Instruct**, adapted specif
 
 The fine-tuned model integrates directly with the MCP tool layer (`services/mcp_service.py`, `services/tool_service.py`), and the system still runs in a graceful Ollama-based fallback mode if the fine-tuned weights aren't available in a given environment.
 
+**Checkpoint**: published on Hugging Face at [MRaviteja/qwen2.5-3b-toolcalling](https://huggingface.co/MRaviteja/qwen2.5-3b-toolcalling) as raw `safetensors` (base weights + tokenizer files). This is the native Transformers/PEFT format, not GGUF — see the Ollama section below for how to convert and run it.
+
 ## Project Structure
 - `app/main.py` - FastAPI app and static frontend serving
 - `app/routes/report.py` - analysis, chat, sample, and report APIs
@@ -52,7 +54,7 @@ The fine-tuned model integrates directly with the MCP tool layer (`services/mcp_
 ### Backend
 ```bash
 python -m venv .venv
-.venv\Scripts\activate
+source .venv/bin/activate   # On Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
@@ -65,19 +67,55 @@ cd ..
 ```
 
 ## Optional Ollama Setup
-ReportGenie AI works without Ollama by falling back to deterministic insight copy, but the premium AI insight and chat layers improve when Ollama is running (or when the fine-tuned Qwen2.5-3B-Instruct weights are loaded locally).
+ReportGenie AI works without Ollama by falling back to deterministic insight copy, but the premium AI insight and chat layers improve when Ollama is running with the fine-tuned model loaded.
 
+Ollama only runs models in **GGUF** format. The published checkpoint on Hugging Face ([MRaviteja/qwen2.5-3b-toolcalling](https://huggingface.co/MRaviteja/qwen2.5-3b-toolcalling)) is raw `safetensors`, so it can't be `ollama pull`-ed directly — it needs a one-time conversion to GGUF using `llama.cpp`, then it's registered with Ollama via a `Modelfile`.
+
+**1. Download the checkpoint**
 ```bash
-ollama pull mistral:latest
+pip install huggingface_hub
+huggingface-cli download MRaviteja/qwen2.5-3b-toolcalling --local-dir ./qwen2.5-3b-toolcalling
+```
+
+**2. Convert safetensors → GGUF with llama.cpp**
+```bash
+git clone https://github.com/ggerganov/llama.cpp
+cd llama.cpp
+pip install -r requirements.txt
+
+python convert_hf_to_gguf.py ../qwen2.5-3b-toolcalling \
+  --outfile ../qwen2.5-3b-toolcalling.gguf \
+  --outtype f16
+```
+
+**3. (Optional) Quantize for smaller size / faster inference**
+```bash
+./llama-quantize ../qwen2.5-3b-toolcalling.gguf \
+  ../qwen2.5-3b-toolcalling-q4_k_m.gguf Q4_K_M
+```
+
+**4. Create an Ollama Modelfile**
+```text
+FROM ./qwen2.5-3b-toolcalling-q4_k_m.gguf
+TEMPLATE "{{ .System }}\n{{ .Prompt }}"
+PARAMETER stop "<|im_end|>"
+```
+Save this as `Modelfile` next to the `.gguf` file. Adjust `TEMPLATE`/`stop` tokens to match `chat_template.jinja` from the checkpoint if the chat format differs.
+
+**5. Register and run with Ollama**
+```bash
+ollama create reportgenie-qwen -f Modelfile
 ollama serve
 ```
 
 Optional environment variables:
 - `OLLAMA_HOST` defaults to `http://localhost:11434`
-- `OLLAMA_MODEL` defaults to `mistral:latest`
+- `OLLAMA_MODEL` defaults to `reportgenie-qwen` (the name registered in step 5 above — matches the fine-tuned checkpoint, not a stock Ollama library model)
 - `OLLAMA_TIMEOUT_SECONDS` defaults to `20`
 - `SCHEMA_LLM_ASSIST` defaults to `1` and enables local-LLM help for unfamiliar CSV schemas
 - `SCHEMA_LLM_CONFIDENCE_THRESHOLD` defaults to `1.35` and controls when schema assist kicks in
+
+If you'd rather skip the conversion, ReportGenie AI degrades gracefully to deterministic insight copy with no Ollama model loaded at all.
 
 ## Run
 ```bash

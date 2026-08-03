@@ -9,7 +9,7 @@ node_modules
 .env.*
 outputs/report.html
 outputs/charts/*.png
-
+finetune/Checkpoints
 # Compiled class file
 *.class
 
